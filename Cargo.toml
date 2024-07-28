@@ -2,11 +2,14 @@
 name = "nyquist_lib"
 version = "0.1.0"
 edition = "2021"
-
 [dependencies]
-kira = { version= "0.9.3", features = ["cpal"] }
-tokio = { version = "1.38.0", features = ["time"] }
+kira = { version = "0.9.3", features = ["cpal"] }
 bytes = "1"
 console-subscriber = "0.3.0"
+
+parking_lot = { version = "0.12.3", features = ["arc_lock"] }
+
+parking_lot_mpsc = "0.1.5"
+
 [build]
-rustflags = ["--cfg", "tokio_unstable"]
+rustflags = ["--cfg"]
