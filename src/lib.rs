@@ -81,6 +81,9 @@ impl Nyquist {
 
     pub fn set_vol(&self, vol: f64) {
         self.playlist.lock().current_volume = vol;
+        self.message_passer
+            .tx
+            .send((Message::EffectVolume, MessageValue::float(vol)));
     }
 }
 
